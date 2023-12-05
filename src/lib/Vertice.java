@@ -1,4 +1,5 @@
-package lib;
+package src.lib;
+
 import java.util.ArrayList;
 
 public class Vertice<T> {
