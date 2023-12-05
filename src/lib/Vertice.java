@@ -1,30 +1,39 @@
-package src.lib;
-
+package lib;
 import java.util.ArrayList;
 
 public class Vertice<T> {
     private T valor;
-    //Estratégia de Armazenamento - Lista de Adjacências
-    private ArrayList<Aresta> destinos;
+    private ArrayList<Aresta<T>> destinos;
 
-    public Vertice(T valor, ArrayList<Aresta> destinos) {
-        this.valor = valor;
-        this.destinos = destinos;
+    // Construtor que recebe um valor para inicializar o vértice.
+    public Vertice(T valor){
+        setValor(valor);
+        this.destinos = new ArrayList<>();
     }
 
-    public T getValor() {
+    // Obtém o valor associado ao vértice.
+    public T getValor(){
         return valor;
     }
 
-    public void setValor(T valor) {
+    // Define o valor associado ao vértice.
+    public void setValor(T valor){
         this.valor = valor;
     }
 
-    public ArrayList<Aresta> getDestinos() {
+    // Adiciona uma aresta de destino ao vértice.
+    public void adicionarDestino(Aresta<T> aresta){
+        this.destinos.add(aresta);
+    }
+
+    // Obtém a lista de arestas de destino do vértice.
+    public ArrayList<Aresta<T>> getDestinos(){
         return destinos;
     }
 
-    public void setDestinos(ArrayList<Aresta> destinos) {
-        this.destinos = destinos;
+    // Sobrescreve o método toString para fornecer uma representação em string do vértice.
+    @Override
+    public String toString() {
+        return this.valor.toString();
     }
 }
